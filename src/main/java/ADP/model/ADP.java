@@ -23,9 +23,9 @@ public class ADP {
         eqpmento.setSerie("123456");
         eqpmento.setPreco("112412");
         eqpmento.setFabricante("volkswagen");
-        System.out.println("adicionando");
+        
         eqp.adiciona(eqpmento);
-        System.out.println("concluido");
+        System.out.println("DEU CERTO!");
     }
     
 }
