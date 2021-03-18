@@ -35,6 +35,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnEqp = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnInventario = new javax.swing.JButton();
+        btnRegistroChamados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,32 +55,40 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        btnRegistroChamados.setText("Registro de chamados");
+
         jdpImg.setLayer(btnEqp, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdpImg.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdpImg.setLayer(btnInventario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdpImg.setLayer(btnRegistroChamados, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jdpImgLayout = new javax.swing.GroupLayout(jdpImg);
         jdpImg.setLayout(jdpImgLayout);
         jdpImgLayout.setHorizontalGroup(
             jdpImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpImgLayout.createSequentialGroup()
-                .addContainerGap(443, Short.MAX_VALUE)
-                .addGroup(jdpImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEqp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(402, 402, 402))
+                .addGap(173, 173, 173)
+                .addGroup(jdpImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnEqp, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
+                .addGroup(jdpImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRegistroChamados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(193, 193, 193))
         );
         jdpImgLayout.setVerticalGroup(
             jdpImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdpImgLayout.createSequentialGroup()
-                .addGap(192, 192, 192)
-                .addComponent(btnEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addComponent(btnInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addGap(184, 184, 184)
+                .addGroup(jdpImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
+                .addGroup(jdpImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistroChamados, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(165, 165, 165))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -161,6 +170,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEqp;
     private javax.swing.JButton btnInventario;
+    private javax.swing.JButton btnRegistroChamados;
     private javax.swing.JButton jButton2;
     private static javax.swing.JDesktopPane jdpImg;
     // End of variables declaration//GEN-END:variables

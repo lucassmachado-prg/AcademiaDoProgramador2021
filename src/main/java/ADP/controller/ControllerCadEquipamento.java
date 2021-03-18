@@ -62,14 +62,14 @@ public class ControllerCadEquipamento implements ActionListener {
 
             if (this.codigo == 0) {
                 ADP.services.EquipamentoServices.adicionar(eqp);
-                JOptionPane.showMessageDialog(null, "Aluno inserido com sucesso! ");
+                JOptionPane.showMessageDialog(null, "Equipamento inserido com sucesso! ");
                 // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto da
 
             } else {
                 
-                ADP.services.EquipamentoServices.Alterar(eqp , this.codigo);
+                ADP.services.EquipamentoServices.Alterar(eqp , codigo);
                 
-                JOptionPane.showMessageDialog(null, "O aluno foi alterado com sucesso");
+                JOptionPane.showMessageDialog(null, "Equipamento alterado com sucesso!");
             }
 
            

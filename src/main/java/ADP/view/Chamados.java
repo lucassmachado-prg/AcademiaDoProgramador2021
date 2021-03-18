@@ -5,6 +5,9 @@
  */
 package ADP.view;
 
+import javax.swing.JButton;
+import javax.swing.JTable;
+
 /**
  *
  * @author lucas
@@ -16,6 +19,30 @@ public class Chamados extends javax.swing.JInternalFrame {
      */
     public Chamados() {
         initComponents();
+    }
+    
+    
+    public JButton getbtnSelecionar() {
+        return btnAtualizarChamado;
+    }
+
+    public void setbtnSelecionar(JButton btnAtualizarChamado) {
+        this.btnAtualizarChamado = btnAtualizarChamado;
+    }
+    
+
+   
+    
+    public JButton getbtnDeleteChamado() {
+        return btnExcluirChamado;
+    }
+
+    public void setbtnDelente(JButton btnExcluirChamado) {
+        this.btnExcluirChamado = btnExcluirChamado;
+    }    
+    
+      public JTable getjtChamados() {
+        return jtChamados;
     }
 
     /**
@@ -29,7 +56,7 @@ public class Chamados extends javax.swing.JInternalFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jtChamados = new javax.swing.JTable();
-        btnSelecionarChamado = new javax.swing.JButton();
+        btnAtualizarChamado = new javax.swing.JButton();
         btnExcluirChamado = new javax.swing.JButton();
         jpChamados = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -53,9 +80,19 @@ public class Chamados extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jtChamados);
 
-        btnSelecionarChamado.setText("Selecionar");
+        btnAtualizarChamado.setText("Selecionar");
+        btnAtualizarChamado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarChamadoActionPerformed(evt);
+            }
+        });
 
         btnExcluirChamado.setText("Excluir");
+        btnExcluirChamado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirChamadoActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setText("CHAMADOS");
@@ -89,7 +126,7 @@ public class Chamados extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(btnSelecionarChamado)
+                        .addComponent(btnAtualizarChamado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnExcluirChamado)))
                 .addContainerGap())
@@ -103,7 +140,7 @@ public class Chamados extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSelecionarChamado)
+                    .addComponent(btnAtualizarChamado)
                     .addComponent(btnExcluirChamado))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -111,10 +148,18 @@ public class Chamados extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAtualizarChamadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarChamadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAtualizarChamadoActionPerformed
+
+    private void btnExcluirChamadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirChamadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirChamadoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtualizarChamado;
     private javax.swing.JButton btnExcluirChamado;
-    private javax.swing.JButton btnSelecionarChamado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jpChamados;

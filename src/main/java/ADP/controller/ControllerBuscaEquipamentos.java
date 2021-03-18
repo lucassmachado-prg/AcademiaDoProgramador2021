@@ -37,12 +37,12 @@ public class ControllerBuscaEquipamentos implements ActionListener {
         this.i.getbtnAtualizar().addActionListener(this);
 
         //Criando uma tabela de defaultableModel recuperando o modelo da jTable inserida no form
-        DefaultTableModel tabela = (DefaultTableModel) this.i.getjtAlunos().getModel();
+        DefaultTableModel tabela = (DefaultTableModel) this.i.getjtEquipamentos().getModel();
 
         //Aqui estou montando uma lista com os pesquisadores que mandei vir do banco através do DAO.retrieve....
-        List<Equipamento> listaBancoAlunos = EquipamentoDAO.carrega();
+        List<Equipamento> listaBancoEquipamentos = EquipamentoDAO.carrega();
 
-        for (Equipamento equipAtual : listaBancoAlunos) {
+        for (Equipamento equipAtual : listaBancoEquipamentos) {
 
             //inserir um objeto na jtable
             tabela.addRow(new Object[]{
@@ -58,7 +58,7 @@ public class ControllerBuscaEquipamentos implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.i.getbtnSelecionar()) {
-            int a = (int) this.i.getjtAlunos().getValueAt(this.i.getjtAlunos().getSelectedRow(), 0);
+            int a = (int) this.i.getjtEquipamentos().getValueAt(this.i.getjtEquipamentos().getSelectedRow(), 0);
             
             this.codigo = a;
             Equipamento eqp = new EquipamentoDAO().carregaId(codigo);
@@ -67,44 +67,41 @@ public class ControllerBuscaEquipamentos implements ActionListener {
             controll.codigo = a;
             
             r.gettxfNome().setText(eqp.getNome());
+            
+            
             this.i.dispose();
-            MainFrame.getPane().add(i);
-            i.setVisible(true);
-            
-                    
-            
-            
+            MainFrame.getPane().add(r);
+            r.setVisible(true);
            
-            
-            
-            
-            
-
+        
         } else if (e.getSource() == this.i.getbtnDelete()) {
-            if (this.i.getjtAlunos().getSelectedRow() != -1) {
+            if (this.i.getjtEquipamentos().getSelectedRow() != -1) {
                 Equipamento eqp = new Equipamento();
                 EquipamentoDAO dao = new EquipamentoDAO();
 
-                eqp.setId((int) this.i.getjtAlunos().getValueAt(this.i.getjtAlunos().getSelectedRow(), 0));
+                eqp.setId((int) this.i.getjtEquipamentos().getValueAt(this.i.getjtEquipamentos().getSelectedRow(), 0));
                 if (dao.delete(eqp)) {
-                    JOptionPane.showMessageDialog(null, "O aluno foi excluído com sucesso!");
+                    JOptionPane.showMessageDialog(null, "O equipamento foi excluído com sucesso!");
                     
                 } else {
-                    JOptionPane.showMessageDialog(null, "Selecione o aluno para excluir.");
+                    JOptionPane.showMessageDialog(null, "Selecione o equipamento para excluir.");
                 }
             }
         } else if(e.getSource() == this.i.getbtnAtualizar()){
-            int a = (int) this.i.getjtAlunos().getValueAt(this.i.getjtAlunos().getSelectedRow(), 0);
+            int a = (int) this.i.getjtEquipamentos().getValueAt(this.i.getjtEquipamentos().getSelectedRow(), 0);
             this.codigo = a;
             if (codigo != 0) {
                 
-                Registro r = new Registro();
-                ControllerCadEquipamento eqp = new ControllerCadEquipamento(r);
-                eqp.codigo = this.codigo;
-                Equipamento eqpt = EquipamentoDAO.carregaId(codigo);
-                r.gettxfNome().setText(eqpt.getNome());
-                r.gettxfSerie().setText(eqpt.getSerie());
-                r.gettxfFabriEqp().setText(eqpt.getFabricante());
+            Equipamento eqp = new EquipamentoDAO().carregaId(codigo);
+            Registro r = new Registro();
+            ControllerCadEquipamento controll = new ControllerCadEquipamento(r);
+            controll.codigo = a;
+            
+            r.gettxfNome().setText(eqp.getNome());
+            r.gettxfFabriEqp().setText(eqp.getFabricante());
+            r.gettxfDataEqp().setText(eqp.getData_fabricacao());
+            r.gettxfPreco().setText(eqp.getPreco());
+            r.gettxfSerie().setText(eqp.getSerie());
                 
                 
                 this.i.dispose();

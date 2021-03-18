@@ -58,7 +58,7 @@ public class EquipamentoDAO {
             
             while (rs.next()) {
                 Equipamento eqp = new Equipamento();
-                eqp.setId(rs.getInt("id"));
+                eqp.setId(rs.getInt("idequipamento"));
                 eqp.setNome(rs.getString("nome"));
                 eqp.setSerie(rs.getString("serie"));
                 eqp.setFabricante(rs.getString("fabricante"));
@@ -80,7 +80,7 @@ public class EquipamentoDAO {
     
    public static Boolean delete(Equipamento eqp) {
         
-        String sqlaExecutar = "DELETE FROM aluno WHERE id = ?";
+        String sqlaExecutar = "DELETE FROM equipamento WHERE idequipamento = ?";
         PreparedStatement stmt = null;
         Connection con = conexao.getConnection();
         try {
@@ -119,8 +119,8 @@ public class EquipamentoDAO {
                 
                 
                 eqp.setNome(rs.getString("nome"));
-                eqp.setId(rs.getInt("id"));
-                eqp.setNome(rs.getString("nome"));
+               // eqp.setId(rs.getInt("idequipamento"));
+                //eqp.setNome(rs.getString("nome"));
                 eqp.setSerie(rs.getString("serie"));
                 eqp.setFabricante(rs.getString("fabricante"));
                 eqp.setData_fabricacao((rs.getString("data_fabricacao")));
@@ -150,13 +150,13 @@ public class EquipamentoDAO {
         //Requerendo uma conexao
         Connection con = conexao.getConnection();
         
-        String sqlaExecutar = "update eqp "
+        String sqlaExecutar = "update equipamento "
                 + "set nome = ?, "
                 + "serie = ?, "
                 + "fabricante = ?, "                                    
                 + "data_fabricacao = ?, "
                 + "preco = ? "
-                + "where eqp.id = ? ";
+                + "where equipamento.idequipamento = ? ";
                 
         PreparedStatement pstm = null;
 
@@ -166,11 +166,12 @@ public class EquipamentoDAO {
                 pstm.setString(1, eqp.getNome());
                 pstm.setString(2, eqp.getSerie());
                 pstm.setString(3, eqp.getFabricante());
-                pstm.setString(4, eqp.getData_fabricacao().toString());
+                pstm.setString(4, eqp.getData_fabricacao());
                 pstm.setString(5, eqp.getPreco());
                 
+                pstm.setInt(6, codigo);
             
-                pstm.setInt(6, codigo);  
+                
                 
                 
             pstm.executeUpdate();
@@ -213,6 +214,7 @@ public class EquipamentoDAO {
             return null;
         }
     }
+
     
     
     

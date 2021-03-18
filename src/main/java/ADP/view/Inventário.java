@@ -16,7 +16,7 @@ import javax.swing.JTable;
  */
 public class Inventário extends javax.swing.JInternalFrame {
     
-    EquipamentoDAO eqp = new EquipamentoDAO();
+    
 
     MainFrame menu;
     /**
@@ -52,7 +52,7 @@ public class Inventário extends javax.swing.JInternalFrame {
     
 
     
-    public JTable getjtAlunos() {
+    public JTable getjtEquipamentos() {
         return jtEquipamentos;
     }
 
@@ -93,6 +93,11 @@ public class Inventário extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(jtEquipamentos);
 
         btnSelecionar.setText("Selecionar");
+        btnSelecionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelecionarActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Excluir");
 
@@ -117,6 +122,11 @@ public class Inventário extends javax.swing.JInternalFrame {
         );
 
         btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -152,6 +162,14 @@ public class Inventário extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSelecionarActionPerformed
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAtualizarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

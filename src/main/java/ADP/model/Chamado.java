@@ -5,7 +5,8 @@
  */
 package ADP.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 /**
  *
@@ -17,12 +18,23 @@ public class Chamado {
     private String titulo;
     private String descricao_chamado;
     private Equipamento equipamento;
-    private Date data_abertura;
+    private int eqp;
+    private LocalDate data_abertura;
     
     public Chamado(){
         
         
     }
+
+    public int getEqp() {
+        return eqp;
+    }
+
+    public void setEqp(int eqp) {
+        this.eqp = eqp;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -56,11 +68,11 @@ public class Chamado {
         this.equipamento = equipamento;
     }
 
-    public Date getData_abertura() {
+    public LocalDate getData_abertura() {
         return data_abertura;
     }
 
-    public void setData_abertura(Date data_abertura) {
+    public void setData_abertura(LocalDate data_abertura) {
         this.data_abertura = data_abertura;
     }
 
