@@ -5,7 +5,9 @@
  */
 package ADP.view;
 
+import ADP.controller.ControllerBuscaChamados;
 import ADP.controller.ControllerBuscaEquipamentos;
+import ADP.controller.ControllerCadChamados;
 import ADP.controller.ControllerCadEquipamento;
 import javax.swing.JDesktopPane;
 
@@ -47,6 +49,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton2.setText("Chamados");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         btnInventario.setText("Inventário");
         btnInventario.addActionListener(new java.awt.event.ActionListener() {
@@ -56,6 +63,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         btnRegistroChamados.setText("Registro de chamados");
+        btnRegistroChamados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistroChamadosActionPerformed(evt);
+            }
+        });
 
         jdpImg.setLayer(btnEqp, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdpImg.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -126,6 +138,22 @@ public class MainFrame extends javax.swing.JFrame {
         i.menu =this;
         i.setVisible(true);
     }//GEN-LAST:event_btnInventarioActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Chamados c = new Chamados();
+        ControllerBuscaChamados cCad = new ControllerBuscaChamados(c);
+        jdpImg.add(c);
+        c.menu = this;
+        c.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnRegistroChamadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroChamadosActionPerformed
+        RegistroChamados rc = new RegistroChamados();
+        ControllerCadChamados controller = new ControllerCadChamados(rc);
+        jdpImg.add(rc);
+        rc.menu = this;
+        rc.setVisible(true);
+    }//GEN-LAST:event_btnRegistroChamadosActionPerformed
 
     /**
      * @param args the command line arguments

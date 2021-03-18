@@ -14,9 +14,9 @@ import javax.swing.JTable;
  */
 public class Chamados extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Chamados
-     */
+    public MainFrame menu;
+    
+    
     public Chamados() {
         initComponents();
     }

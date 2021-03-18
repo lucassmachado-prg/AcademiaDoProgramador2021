@@ -11,12 +11,12 @@ import javax.swing.JDesktopPane;
  *
  * @author lucas
  */
-public class Equipamento extends javax.swing.JInternalFrame {
+public class Equipamentos extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Equipamento
      */
-    public Equipamento() {
+    public Equipamentos() {
         initComponents();
     }
 

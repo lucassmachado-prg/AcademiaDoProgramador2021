@@ -6,6 +6,7 @@
 package ADP.model.DAO;
 
 import ADP.model.Chamado;
+import ADP.model.Equipamento;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,8 +31,8 @@ public class ChamadosDAO {
             stmt = con.prepareStatement(sqlaExecutar);
             stmt.setString(1, chamado.getTitulo());
             stmt.setString(2, chamado.getDescricao_chamado());
-            stmt.setInt(3, chamado.getEqp());
-           // stmt.setString(4, LocalDate.parse(chamado.getData_abertura()));
+            stmt.setString(3, chamado.getEquipamento().getNome());
+            stmt.setString(4, LocalDate.now().toString());
             
             
             stmt.executeUpdate();
@@ -51,7 +52,7 @@ public class ChamadosDAO {
         List<Chamado> chamados = new ArrayList<>();
         
         try {
-            stmt = con.prepareStatement("SELECT * FROM chamados");
+            stmt = con.prepareStatement("SELECT idchamados, titulo, descricao, equipamento,e.nome, dataAbertura FROM equipamento.chamados c inner join equipamento.equipamento e on c.equipamento = e.idequipamento;");
             
             rs = stmt.executeQuery();
             
@@ -60,8 +61,11 @@ public class ChamadosDAO {
                 chamado.setId(rs.getInt("idchamados"));
                 chamado.setTitulo(rs.getString("titulo"));
                 chamado.setDescricao_chamado(rs.getString("descricao"));
-                chamado.setEqp(rs.getInt("equipamento"));
-                chamado.setData_abertura((rs.getString("dataAbertura")));
+                Equipamento eqp = new Equipamento();
+                eqp.setId(rs.getInt("equipamento"));
+                eqp.setNome(rs.getString("e.nome"));
+                chamado.setEquipamento(eqp);
+                chamado.setData_abertura(LocalDate.parse(rs.getString("dataAbertura")));
                 
                 chamados.add(chamado);
                 
@@ -110,7 +114,9 @@ public class ChamadosDAO {
         
         Chamado c = new Chamado();
         try {
-            stmt = con.prepareStatement("SELECT * FROM chamados WHERE chamados.idchamados = ?");
+            
+            //SELECT idchamados, titulo, descricao, equipamento,e.nome FROM equipamento.chamados c inner join equipamento.equipamento e on c.equipamento = e.idequipamento;
+            stmt = con.prepareStatement("SELECT idchamados, titulo, descricao, equipamento,e.nome FROM equipamento.chamados c inner join equipamento.equipamento e on c.equipamento = e.idequipamento; WHERE chamados.idchamados = ?");
             stmt.setInt(1,id);
             rs = stmt.executeQuery();
             
@@ -120,8 +126,15 @@ public class ChamadosDAO {
                 c.setTitulo(rs.getString("titulo"));
                
                 c.setDescricao_chamado(rs.getString("descricao"));
-                c.setEqp(rs.getInt("equipamento"));
-              //  c.setData_abertura((rs.getDate().now));
+               
+                
+                
+                Equipamento eqp = new Equipamento();
+                eqp.setId(rs.getInt("equipamento"));
+                eqp.setNome(rs.getString("e.nome"));
+                
+                c.setEquipamento(eqp);
+                c.setData_abertura((rs.getString("dataAbertura")));
                 
                
                 
@@ -162,7 +175,7 @@ public class ChamadosDAO {
                 pstm.setString(1, c.getTitulo());
                 pstm.setString(2, c.getDescricao_chamado());
                 pstm.setInt(3, c.getEquipamento().getId());
-                //pstm.setString(4, c.getData_abertura());
+                pstm.setString(4, c.getData_abertura().toString());
                 
                 
                 pstm.setInt(5, codigo);

@@ -18,7 +18,7 @@ public class Chamado {
     private String titulo;
     private String descricao_chamado;
     private Equipamento equipamento;
-    private int eqp;
+    
     private LocalDate data_abertura;
     
     public Chamado(){
@@ -26,13 +26,19 @@ public class Chamado {
         
     }
 
-    public int getEqp() {
-        return eqp;
+    public Chamado(int id, String titulo, String descricao_chamado, Equipamento equipamento, LocalDate data_abertura) {
+        this.id = id;
+        this.titulo = titulo;
+        this.descricao_chamado = descricao_chamado;
+        this.equipamento = equipamento;
+        this.data_abertura = data_abertura;
     }
 
-    public void setEqp(int eqp) {
-        this.eqp = eqp;
-    }
+   
+    
+    
+
+    
     
     
 
