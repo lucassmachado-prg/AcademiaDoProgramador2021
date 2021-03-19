@@ -160,7 +160,7 @@ public class ChamadosDAO {
         
     }
         
-                public static void update(Chamado c, int codigo) {
+                public static void update(Chamado c) {
 
         //Requerendo uma conexao
         Connection con = conexao.getConnection();
@@ -182,7 +182,7 @@ public class ChamadosDAO {
                 pstm.setString(4, c.getData_abertura().toString());
                 
                 
-                pstm.setInt(5, codigo);
+                pstm.setInt(5, c.getId());
             
                 
                 

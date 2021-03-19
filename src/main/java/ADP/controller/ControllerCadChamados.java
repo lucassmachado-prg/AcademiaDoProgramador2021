@@ -83,6 +83,7 @@ public class ControllerCadChamados implements ActionListener {
             chamado.setTitulo(this.rChamados.gettxfTitulo().getText());
             chamado.setDescricao_chamado(this.rChamados.gettxfDescricao().getText());
             chamado.setData_abertura(LocalDate.parse(this.rChamados.gettxfData().getText()));
+            chamado.setId(codigo);
             
             chamado.setEquipamento(eqp);
            
@@ -97,7 +98,7 @@ public class ControllerCadChamados implements ActionListener {
                 // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto da
 
             } else {
-                ADP.services.ChamadosServices.Alterar(chamado , codigo);
+                ADP.services.ChamadosServices.Alterar(chamado);
                 
                 JOptionPane.showMessageDialog(null, "Chamado alterado com sucesso!");
                 
@@ -115,7 +116,7 @@ public class ControllerCadChamados implements ActionListener {
             MainFrame.getPane().add(i);
             
             i.setVisible(true);
-
+            this.rChamados.setVisible(false);
             
               if (this.codigo != 0) { 
               
@@ -132,6 +133,7 @@ public class ControllerCadChamados implements ActionListener {
              
              
               }
+              
              
         } 
 

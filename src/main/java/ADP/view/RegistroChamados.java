@@ -116,7 +116,6 @@ public class RegistroChamados extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Equipamento:");
 
-        btnProcurarEqp.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucas\\Downloads\\xmag_search_find_export_locate_5984.png")); // NOI18N
         btnProcurarEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProcurarEqpActionPerformed(evt);
@@ -175,7 +174,7 @@ public class RegistroChamados extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(112, 112, 112)
                             .addComponent(jLabel4))))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jSeparator1)
         );
         layout.setVerticalGroup(
@@ -187,10 +186,10 @@ public class RegistroChamados extends javax.swing.JInternalFrame {
                     .addComponent(txfTituloChamado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnProcurarEqp)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txfEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabel2))
+                    .addComponent(btnProcurarEqp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)

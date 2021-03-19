@@ -73,13 +73,15 @@ public class ControllerBuscaChamados implements ActionListener {
             
             this.codigo = a;
             Chamado c = new ChamadosDAO().carregaId(codigo);
+            
             RegistroChamados chamaTela = new RegistroChamados();
             ControllerCadChamados controll = new ControllerCadChamados(chamaTela);
             controll.codigo = a;
             
             chamaTela.gettxfTitulo().setText(c.getTitulo());
             chamaTela.gettxfData().setText(c.getData_abertura().toString());
-            chamaTela.gettxfEqp().setText(c.getEquipamento().getNome());
+             chamaTela.gettxfEqp().setText(c.getEquipamento().getId()+"- "+c.getEquipamento().getNome());
+            
             chamaTela.gettxfDescricao().setText(c.getDescricao_chamado());
             
             

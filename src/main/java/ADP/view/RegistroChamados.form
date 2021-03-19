@@ -58,7 +58,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Component id="jSeparator1" max="32767" attributes="0"/>
       </Group>
@@ -73,11 +73,11 @@
               </Group>
               <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnProcurarEqp" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txfEqp" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="btnProcurarEqp" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="29" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -118,11 +118,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnProcurarEqp">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\lucas\Downloads\xmag_search_find_export_locate_5984.png"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProcurarEqpActionPerformed"/>
       </Events>

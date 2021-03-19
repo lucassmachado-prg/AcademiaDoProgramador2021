@@ -25,8 +25,8 @@ public class ChamadosServices {
         return ChamadosDAO.carregaId(id);
     }
      
-     public static void Alterar(Chamado c, int codigo) {
-        ChamadosDAO.update(c , codigo);
+     public static void Alterar(Chamado c) {
+        ChamadosDAO.update(c);
     }
     
     
