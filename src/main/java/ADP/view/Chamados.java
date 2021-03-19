@@ -60,6 +60,8 @@ public class Chamados extends javax.swing.JInternalFrame {
         btnExcluirChamado = new javax.swing.JButton();
         jpChamados = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnFechar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         jtChamados.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jtChamados.setModel(new javax.swing.table.DefaultTableModel(
@@ -94,6 +96,8 @@ public class Chamados extends javax.swing.JInternalFrame {
             }
         });
 
+        jpChamados.setBackground(new java.awt.Color(255, 0, 0));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setText("CHAMADOS");
 
@@ -114,6 +118,13 @@ public class Chamados extends javax.swing.JInternalFrame {
                 .addGap(40, 40, 40))
         );
 
+        btnFechar.setText("Fechar");
+        btnFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFecharActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,9 +138,12 @@ public class Chamados extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(btnAtualizarChamado)
+                        .addGap(183, 183, 183)
+                        .addComponent(btnExcluirChamado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnExcluirChamado)))
+                        .addComponent(btnFechar)))
                 .addContainerGap())
+            .addComponent(jSeparator1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,11 +152,14 @@ public class Chamados extends javax.swing.JInternalFrame {
                 .addComponent(jpChamados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addGap(5, 5, 5)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAtualizarChamado)
-                    .addComponent(btnExcluirChamado))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnExcluirChamado)
+                    .addComponent(btnFechar))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();
@@ -156,12 +173,18 @@ public class Chamados extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExcluirChamadoActionPerformed
 
+    private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnFecharActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizarChamado;
     private javax.swing.JButton btnExcluirChamado;
+    private javax.swing.JButton btnFechar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel jpChamados;
     private javax.swing.JTable jtChamados;
     // End of variables declaration//GEN-END:variables

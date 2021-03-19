@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -24,6 +25,9 @@ import java.util.logging.Logger;
 public class ChamadosDAO {
     
     public static  void adiciona(Chamado chamado){
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        String hojeFormatado = chamado.getData_abertura().format(formatter);
         String sqlaExecutar = "INSERT INTO chamados(titulo,descricao,equipamento,dataAbertura) VALUES(?,?,?,?)";
         PreparedStatement stmt = null;
         Connection con = conexao.getConnection();
@@ -31,8 +35,8 @@ public class ChamadosDAO {
             stmt = con.prepareStatement(sqlaExecutar);
             stmt.setString(1, chamado.getTitulo());
             stmt.setString(2, chamado.getDescricao_chamado());
-            stmt.setString(3, chamado.getEquipamento().getNome());
-            stmt.setString(4, LocalDate.now().toString());
+            stmt.setInt(3, chamado.getEquipamento().getId());
+            stmt.setString(4, hojeFormatado);
             
             
             stmt.executeUpdate();
@@ -116,7 +120,7 @@ public class ChamadosDAO {
         try {
             
             //SELECT idchamados, titulo, descricao, equipamento,e.nome FROM equipamento.chamados c inner join equipamento.equipamento e on c.equipamento = e.idequipamento;
-            stmt = con.prepareStatement("SELECT idchamados, titulo, descricao, equipamento,e.nome FROM equipamento.chamados c inner join equipamento.equipamento e on c.equipamento = e.idequipamento; WHERE chamados.idchamados = ?");
+            stmt = con.prepareStatement("SELECT idchamados, titulo, descricao, equipamento,e.nome,dataAbertura FROM equipamento.chamados c inner join equipamento.equipamento e on c.equipamento = e.idequipamento WHERE c.idchamados = ?");
             stmt.setInt(1,id);
             rs = stmt.executeQuery();
             
@@ -134,7 +138,7 @@ public class ChamadosDAO {
                 eqp.setNome(rs.getString("e.nome"));
                 
                 c.setEquipamento(eqp);
-                c.setData_abertura((rs.getString("dataAbertura")));
+                c.setData_abertura(LocalDate.parse(rs.getString("dataAbertura")));
                 
                
                 
@@ -165,7 +169,7 @@ public class ChamadosDAO {
                 + "set titulo = ?, "
                 + "descricao = ?, "
                 + "equipamento = ?, "                                    
-                + "dataAbertura = ?, ";
+                + "dataAbertura = ? where chamados.idchamados = ? ";
                 
         PreparedStatement pstm = null;
 

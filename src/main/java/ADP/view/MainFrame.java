@@ -35,12 +35,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         jdpImg = new javax.swing.JDesktopPane();
         btnEqp = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnChamados = new javax.swing.JButton();
         btnInventario = new javax.swing.JButton();
         btnRegistroChamados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnEqp.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucas\\Downloads\\1489186740-constructgearoptimizerepairsetting_81823.png")); // NOI18N
         btnEqp.setText("Equipamento");
         btnEqp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,13 +49,15 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Chamados");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnChamados.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucas\\Downloads\\clipboard_list_checklist_document_check_icon_175961.png")); // NOI18N
+        btnChamados.setText("Chamados");
+        btnChamados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnChamadosActionPerformed(evt);
             }
         });
 
+        btnInventario.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucas\\Downloads\\1486504352-checklist-clipboard-inventory-list-report-tasks-todo_81326.png")); // NOI18N
         btnInventario.setText("Inventário");
         btnInventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +65,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        btnRegistroChamados.setIcon(new javax.swing.ImageIcon("C:\\Users\\lucas\\Downloads\\4313132notesrecordstationerytakingwriting-115803_115776.png")); // NOI18N
         btnRegistroChamados.setText("Registro de chamados");
         btnRegistroChamados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,7 +74,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jdpImg.setLayer(btnEqp, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdpImg.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdpImg.setLayer(btnChamados, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdpImg.setLayer(btnInventario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jdpImg.setLayer(btnRegistroChamados, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -82,8 +86,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(173, 173, 173)
                 .addGroup(jdpImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnEqp, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
+                    .addComponent(btnChamados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
                 .addGroup(jdpImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRegistroChamados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -98,7 +102,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(btnEqp, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
                 .addGroup(jdpImgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnChamados, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRegistroChamados, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(165, 165, 165))
         );
@@ -139,13 +143,13 @@ public class MainFrame extends javax.swing.JFrame {
         i.setVisible(true);
     }//GEN-LAST:event_btnInventarioActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnChamadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChamadosActionPerformed
         Chamados c = new Chamados();
         ControllerBuscaChamados cCad = new ControllerBuscaChamados(c);
         jdpImg.add(c);
         c.menu = this;
         c.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnChamadosActionPerformed
 
     private void btnRegistroChamadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroChamadosActionPerformed
         RegistroChamados rc = new RegistroChamados();
@@ -192,14 +196,13 @@ public class MainFrame extends javax.swing.JFrame {
     
         public static JDesktopPane getPane() {
         return jdpImg;
-
-    }
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnChamados;
     private javax.swing.JButton btnEqp;
     private javax.swing.JButton btnInventario;
     private javax.swing.JButton btnRegistroChamados;
-    private javax.swing.JButton jButton2;
     private static javax.swing.JDesktopPane jdpImg;
     // End of variables declaration//GEN-END:variables
 }

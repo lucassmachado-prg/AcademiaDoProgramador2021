@@ -16,6 +16,7 @@ import ADP.view.MainFrame;
 import ADP.view.RegistroChamados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
@@ -37,6 +38,7 @@ public class ControllerCadChamados implements ActionListener {
         //criando os Listener(ouvintes) para os objetos que desejo, da tela de cadastro
         this.rChamados.getbtnLimpar().addActionListener(this);
         this.rChamados.getbtnSalvar().addActionListener(this);
+        this.rChamados.getbtnProcurarEqp().addActionListener(this);
         
         
         
@@ -49,69 +51,81 @@ public class ControllerCadChamados implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
               if (e.getSource() == this.rChamados.gettxfData()) {
-                  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                 
-             //this.rChamados.gettxfData().setText(formatter);
+                
             
             
         }else if (e.getSource() == this.rChamados.getbtnFechar()) {
             this.rChamados.dispose();
         } else if (e.getSource() == this.rChamados.getbtnLimpar()) {
             
-            this.codigo = 0;
+            
           
            
         } else if (e.getSource() == this.rChamados.getbtnSalvar()) {
-            
+            //this.codigo = 0;
             //acionar camada responsável pela gravação dos dados
             Chamado chamado = new Chamado();
             Equipamento eqp = new Equipamento();
             
+            String[] eqpId = this.rChamados.gettxfEqp().getText().split("-");
             eqp.setNome(this.rChamados.gettxfEqp().getText());
+            eqp.setId(Integer.parseInt(eqpId[0]));
+            System.out.println(eqp.getId());
+            
+            
+            
 
             //estou concatenando com "0" para evitar erros de conversão...
-           
+            /** DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+
+             String hojeFormatado = rChamados.gettxfData().getText().format(formatter);*/
+             
             chamado.setTitulo(this.rChamados.gettxfTitulo().getText());
             chamado.setDescricao_chamado(this.rChamados.gettxfDescricao().getText());
-            chamado.setTitulo(this.rChamados.gettxfEqp().getText());
+            chamado.setData_abertura(LocalDate.parse(this.rChamados.gettxfData().getText()));
+            
             chamado.setEquipamento(eqp);
            
 
           
 
-            if (this.codigo == 0) {
+            if (chamado.getId() == 0) {
+                
                 ADP.services.ChamadosServices.adicionar(chamado);
                 JOptionPane.showMessageDialog(null, "Chamado inserido com sucesso! ");
+                
                 // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto da
 
             } else {
-                
                 ADP.services.ChamadosServices.Alterar(chamado , codigo);
                 
                 JOptionPane.showMessageDialog(null, "Chamado alterado com sucesso!");
+                
+                
             }
 
            
         }else if (e.getSource() == this.rChamados.getbtnProcurarEqp()) {
 
             this.codigo = 0;
-
+              Inventário i = new Inventário();
+              ControllerBuscaEquipamentos busca = new ControllerBuscaEquipamentos(i);
             
-            Inventário tela = new Inventário();
-            ControllerBuscaEquipamentos busca = new ControllerBuscaEquipamentos(tela);
-            MainFrame.getPane().add(tela);
             
-            tela.setVisible(true);
+            MainFrame.getPane().add(i);
+            
+            i.setVisible(true);
 
             
               if (this.codigo != 0) { 
               
              
             
-             Chamado chamados = ChamadosDAO.carregaId(codigo);
+              Chamado chamados = ChamadosDAO.carregaId(codigo);
              
               
               this.rChamados.gettxfEqp().setText(chamados.getEquipamento().toString());
+              
              
              
               
@@ -122,4 +136,8 @@ public class ControllerCadChamados implements ActionListener {
         } 
 
     }
+   /** public void ativarDesativarFormulario(boolean estadoAFicar) {
+                this.rChamados.gettxfData().setEnabled(estadoAFicar);
+              
+    }*/
     }

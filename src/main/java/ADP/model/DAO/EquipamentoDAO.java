@@ -119,8 +119,8 @@ public class EquipamentoDAO {
                 
                 
                 eqp.setNome(rs.getString("nome"));
-               // eqp.setId(rs.getInt("idequipamento"));
-                //eqp.setNome(rs.getString("nome"));
+               eqp.setId(rs.getInt("idequipamento"));
+                
                 eqp.setSerie(rs.getString("serie"));
                 eqp.setFabricante(rs.getString("fabricante"));
                 eqp.setData_fabricacao((rs.getString("data_fabricacao")));

@@ -15,6 +15,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import ADP.view.MainFrame;
+import ADP.view.RegistroChamados;
 
 /**
  *
@@ -62,11 +63,15 @@ public class ControllerBuscaEquipamentos implements ActionListener {
             
             this.codigo = a;
             Equipamento eqp = new EquipamentoDAO().carregaId(codigo);
-            Registro r = new Registro();
-            ControllerCadEquipamento controll = new ControllerCadEquipamento(r);
+            RegistroChamados r = new RegistroChamados(eqp);
+            ControllerCadChamados controll = new ControllerCadChamados(r);
             controll.codigo = a;
             
-            r.gettxfNome().setText(eqp.getNome());
+            
+            
+            
+            r.gettxfEqp().setText(eqp.getId()+"- "+eqp.getNome());
+            
             
             
             this.i.dispose();
