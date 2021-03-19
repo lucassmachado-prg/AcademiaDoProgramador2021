@@ -102,6 +102,11 @@ public class Inventário extends javax.swing.JInternalFrame {
         });
 
         btnDelete.setText("Excluir");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         jpEqp.setBackground(new java.awt.Color(51, 255, 51));
 
@@ -154,8 +159,7 @@ public class Inventário extends javax.swing.JInternalFrame {
                         .addGap(43, 43, 43)
                         .addComponent(btnAtualizar)
                         .addGap(50, 50, 50)
-                        .addComponent(btnSair)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnSair))
                     .addComponent(jpEqp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addComponent(jSeparator1)
@@ -192,6 +196,10 @@ public class Inventário extends javax.swing.JInternalFrame {
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         dispose();
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

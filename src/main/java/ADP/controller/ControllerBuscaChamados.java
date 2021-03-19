@@ -5,6 +5,7 @@
  */
 package ADP.controller;
 
+import ADP.controller.ControllerCadChamados;
 import ADP.model.DAO.ChamadosDAO;
 import ADP.model.Chamado;
 import ADP.view.Chamados;

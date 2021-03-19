@@ -9,7 +9,7 @@ import ADP.model.Chamado;
 import ADP.model.DAO.ChamadosDAO;
 import ADP.model.Equipamento;
 import ADP.view.Chamados;
-import ADP.view.Equipamentos;
+
 import ADP.view.Inventário;
 
 import ADP.view.MainFrame;
@@ -62,7 +62,7 @@ public class ControllerCadChamados implements ActionListener {
           
            
         } else if (e.getSource() == this.rChamados.getbtnSalvar()) {
-            //this.codigo = 0;
+            
             //acionar camada responsável pela gravação dos dados
             Chamado chamado = new Chamado();
             Equipamento eqp = new Equipamento();
@@ -75,10 +75,7 @@ public class ControllerCadChamados implements ActionListener {
             
             
 
-            //estou concatenando com "0" para evitar erros de conversão...
-            /** DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-
-             String hojeFormatado = rChamados.gettxfData().getText().format(formatter);*/
+            
              
             chamado.setTitulo(this.rChamados.gettxfTitulo().getText());
             chamado.setDescricao_chamado(this.rChamados.gettxfDescricao().getText());
@@ -137,9 +134,6 @@ public class ControllerCadChamados implements ActionListener {
              
         } 
 
+   
     }
-   /** public void ativarDesativarFormulario(boolean estadoAFicar) {
-                this.rChamados.gettxfData().setEnabled(estadoAFicar);
-              
-    }*/
-    }
+}

@@ -89,7 +89,7 @@ public class ControllerBuscaEquipamentos implements ActionListener {
                     JOptionPane.showMessageDialog(null, "O equipamento foi excluído com sucesso!");
                     
                 } else {
-                    JOptionPane.showMessageDialog(null, "Selecione o equipamento para excluir.");
+                    JOptionPane.showMessageDialog(null, "Se deseja excluir outro equipamento, selecione-o para excluir.");
                 }
             }
         } else if(e.getSource() == this.i.getbtnAtualizar()){

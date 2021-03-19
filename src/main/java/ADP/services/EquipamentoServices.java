@@ -26,11 +26,6 @@ public class EquipamentoServices { public static List<Equipamento> Buscar() {
      public static void Alterar(Equipamento eqp, int codigo) {
         EquipamentoDAO.update(eqp , codigo);
     }
-     public static Equipamento BuscarUm(String nomeAluno) {
-        return EquipamentoDAO.RetrieveOneNome(nomeAluno);
-    }
-    /**public static void apagar(int idequipamento) {
-        EquipamentoDAO.delete(idequipamento);
-      }*/
+    
     
 }

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author lucas
@@ -92,11 +93,15 @@ public class EquipamentoDAO {
             return true;
             
         } catch (SQLException u) {
-            u.printStackTrace();
+            
+            JOptionPane.showMessageDialog(null, "O equipamento não pode ser deletado, pois está vinculado a um chamado.");
             return false;
+            
             
         } finally {
             conexao.closeConnection(con, stmt);
+            
+            
         }
         
         
@@ -184,36 +189,7 @@ public class EquipamentoDAO {
         }conexao.closeConnection(con, pstm);
         
     }
-                
-                public static Equipamento RetrieveOneNome(String nomeEquipamento) {
-
-        Connection con = conexao.getConnection();
-
-        String sqlAExecutar = "select * from aluno where equipamento.nome = ?";
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
-
-        try {
-            pstm = con.prepareStatement(sqlAExecutar);
-            pstm.setString(1, "%" + nomeEquipamento + "%");
-            rs = pstm.executeQuery();
-            Equipamento eqp = new Equipamento();
-            while (rs.next()) {
-
-                eqp.setId(rs.getInt("id"));
-                eqp.setNome(rs.getString("nome"));
-                eqp.setSerie(rs.getString("serie"));
-                eqp.setFabricante(rs.getString("fabricante"));
-                eqp.setData_fabricacao((rs.getString("data_fabricacao")));
-                eqp.setPreco(rs.getString("Preco"));
-
-            }
-            return eqp;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-    }
+ 
 
     
     

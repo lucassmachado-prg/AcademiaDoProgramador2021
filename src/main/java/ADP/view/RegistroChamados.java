@@ -133,6 +133,11 @@ public class RegistroChamados extends javax.swing.JInternalFrame {
         btnSalvarChamado.setText("Salvar");
 
         btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         btnFechar.setText("Sair");
         btnFechar.addActionListener(new java.awt.event.ActionListener() {
@@ -222,6 +227,14 @@ public class RegistroChamados extends javax.swing.JInternalFrame {
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
         dispose();
     }//GEN-LAST:event_btnFecharActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        txfTituloChamado.setText("");
+        txfDescricao.setText("");
+        txfData.setText("");
+        txfEqp.setText("");
+        txfTituloChamado.requestFocus();
+    }//GEN-LAST:event_btnLimparActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
